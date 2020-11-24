@@ -1,0 +1,46 @@
+body, html {
+  font-family: helvetica, arial, sans-serif;
+  margin: 2em;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+h1,
+h2,
+h4,
+a {
+  color: #ffffff;
+}
+
+.brand-main {
+  background-color: #000000;
+  color: #ffffff;
+  /* Main Background Color */
+}
+
+.brand {
+  background-color: #000000;
+  color: #ffffff;
+  /* Header and Footer bar Color */
+}
+
+.card {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.navbar .navbar-brand {
+  color: #ffffff;
+}
+
+.card-header img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.d-block {
+  border-radius: 0.25rem;
+}
+
+/* #aaa; */
