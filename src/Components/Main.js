@@ -5,7 +5,7 @@ function Main(){
 
     return(
 
-        <div>WECLOME TO DWODGEBALL</div>
+        <div>CHOOSE A GAME</div>
 
     )
 }

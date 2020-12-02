@@ -1,27 +1,31 @@
-import React,{ useState } from "react";
+import React,{ useState, useContext } from "react";
 import { useHistory } from 'react-router-dom';
-import { AxiosHelper } from "../Utilities/AxiosHelper";
+import AxiosHelper from "../Utilities/AxiosHelper";
+import AppContext from '../Utilities/AppContext'
 
 function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory();
+    const { setToken } = useContext(AppContext);
 
-    function success(res){
-
-        if (res.status == 200){
-            history.push('/login');
+    function successfulRegister(res) {
+        if (res.status == 200) {
+          history.push('/main');
+          console.log(res);
+          setToken(res.data.data.token);
+          sessionStorage.setItem('token', res.data.data.token);
         }
-    }
+      }
 
 
     function clickHandler(){
 
         const method = 'post';
-        const url = 'http://localhost:8000/register';
+        const route = 'register';
         const data = { email, password };
 
-        AxiosHelper(method, url, success, data)
+        AxiosHelper({method, route, fun:successfulRegister, data})
     }
 
     return (

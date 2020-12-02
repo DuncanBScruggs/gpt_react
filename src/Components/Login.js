@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { AxiosHelper } from "../Utilities/AxiosHelper";
+import AxiosHelper from "../Utilities/AxiosHelper";
 import { useHistory } from 'react-router-dom';
 import AppContext from '../Utilities/AppContext'
 
@@ -10,22 +10,21 @@ function Login() {
 
     const { setToken } = useContext(AppContext);
 
-    function success(res) {
+    function successfulLogin(res) {
         if (res.status == 200) {
-            history.push('/main');
-            console.log( res );
-            setToken(res.data.access_token);
-            sessionStorage.setItem('token', res.data.access_token);
+          history.push('/main');
+          console.log(res);
+          setToken(res.data.access_token);
+          sessionStorage.setItem('token', res.data.access_token);
         }
-    }
-
+      }
 
     function clickHandler() {
         const method = 'post';
-        const url = 'http://localhost:8000/v1/oauth/token';
-        const data = { username: email, password, client_secret: "nvmIG7Uf8PhsN7yG4JyvokDmAm5ABekQQt7MKM7B", client_id: '2', grant_type: 'password', scope: '' };
+        const route = 'v1/oauth/token';
+        const data = { username: email, password, client_secret: "X7ATaRFqZpj3PlZVxdirO860nhZsFRRmfYZulb5f", client_id: '2', grant_type: 'password', scope: '' };
 
-        AxiosHelper(method, url, success, data)
+        AxiosHelper({method, route, fun:successfulLogin, data})
     }
 
     return (
