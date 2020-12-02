@@ -3,14 +3,17 @@ import AxiosHelper from "../Utilities/AxiosHelper";
 import { useHistory } from 'react-router-dom';
 import AppContext from '../Utilities/AppContext'
 
-function Main(){
+function Profile(){
 
+    const { user } = useContext(AppContext);
+
+    console.log( user );
 
     return(
 
-        <div>CHOOSE A GAME</div>
+        <div>  Profile </div>
 
     )
 }
 
-export default Main;
+export default Profile;

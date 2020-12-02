@@ -12,19 +12,20 @@ function Login() {
 
     function successfulLogin(res) {
         if (res.status == 200) {
-          history.push('/main');
-          console.log(res);
-          setToken(res.data.access_token);
-          sessionStorage.setItem('token', res.data.access_token);
+            history.push('/main');
+            console.log(res);
+            setToken(res.data.access_token);
+            sessionStorage.setItem('token', res.data.access_token);
         }
-      }
+    }
+
 
     function clickHandler() {
         const method = 'post';
         const route = 'v1/oauth/token';
-        const data = { username: email, password, client_secret: "X7ATaRFqZpj3PlZVxdirO860nhZsFRRmfYZulb5f", client_id: '2', grant_type: 'password', scope: '' };
+        const data = { username: email, password, client_secret: "181GqSAg1r1CJLCTMoYqD6J2GGw5E8MTl2ug0RN4", client_id: '2', grant_type: 'password', scope: '' };
 
-        AxiosHelper({method, route, fun:successfulLogin, data})
+        AxiosHelper({ method, route, fun: successfulLogin, data })
     }
 
     return (

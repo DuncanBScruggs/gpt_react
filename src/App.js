@@ -3,6 +3,7 @@ import NavBar from "./Components/NavBar";
 import Signup from "./Components/Signup";
 import Login from "./Components/Login";
 import Main from "./Components/Main";
+import Profile from "./Components/Profile";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AppProvider } from './Utilities/AppContext'
 import AxiosHelper from "./Utilities/AxiosHelper";
@@ -13,7 +14,8 @@ function App() {
     { readableName: "Main", url: "/main" },
     { readableName: "Signup", url: "/signup" },
     { readableName: "Login", url: "/login" },
-    { readableName: "Log Out", url: '/logout'},
+    { readableName: "Profile", url: '/profile'},
+    { readableName: "Logout", url: '/logout'},
   ]
 
   const [user, setUser] = useState({});
@@ -57,9 +59,7 @@ function App() {
       <Router>
         <AppProvider value={initialContext}>
 
-          <NavBar
-
-          />
+          <NavBar/>
 
           <div class="row my-5 justify-content-center">
             <div class="col-7">
@@ -75,6 +75,9 @@ function App() {
                 </Route>
                 <Route path="/login">
                   <Login />
+                </Route>
+                <Route path="/profile">
+                  <Profile />
                 </Route>
               </Switch>
             </div>
