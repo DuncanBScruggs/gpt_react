@@ -4,6 +4,7 @@ import Signup from "./Components/Signup";
 import Login from "./Components/Login";
 import Main from "./Components/Main";
 import Profile from "./Components/Profile";
+import Game from "./Components/Game";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AppProvider } from './Utilities/AppContext'
 import AxiosHelper from "./Utilities/AxiosHelper";
@@ -19,6 +20,9 @@ function App() {
   ]
 
   const [user, setUser] = useState({});
+  const [gamesList, setGamesList] = useState([]);
+  const [gameId, setGameId] = useState('');
+  const [gameName, setGameName] = useState('');
 
   function saveUser(res) {
     if (res.status == 200) {
@@ -43,16 +47,16 @@ function App() {
 
   // did mount
   useEffect(() => {
-    let lsToken = window.sessionStorage.getItem("token")
-    if (lsToken) {
-      setToken(lsToken)
+    let ssToken = window.sessionStorage.getItem("token")
+    if (ssToken) {
+      setToken(ssToken)
     }
   }, [])
 
   // useEffect(()=> window.localStorage.setItem("currentPage", JSON.stringify(currentPage)))
 
   const [token, setToken] = useState('');
-  const initialContext = { token, setToken, user, setUser, saveUser, getUser, pages, logoutUser };
+  const initialContext = { token, setToken, user, setUser, saveUser, getUser, pages, logoutUser, gamesList, setGamesList, gameId, setGameId, gameName, setGameName };
 
   return (
     <div className="brand-main">
@@ -78,6 +82,9 @@ function App() {
                 </Route>
                 <Route path="/profile">
                   <Profile />
+                </Route>
+                <Route path={`/game/:gameid`}>
+                  <Game />
                 </Route>
               </Switch>
             </div>

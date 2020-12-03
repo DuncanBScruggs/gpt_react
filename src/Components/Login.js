@@ -23,7 +23,7 @@ function Login() {
     function clickHandler() {
         const method = 'post';
         const route = 'v1/oauth/token';
-        const data = { username: email, password, client_secret: "181GqSAg1r1CJLCTMoYqD6J2GGw5E8MTl2ug0RN4", client_id: '2', grant_type: 'password', scope: '' };
+        const data = { username: email, password, client_secret: "OdmYjzf8qSWZVYlHUqeqLb0XYiKMUQsRu9vBbmoJ", client_id: '2', grant_type: 'password', scope: '' };
 
         AxiosHelper({ method, route, fun: successfulLogin, data })
     }

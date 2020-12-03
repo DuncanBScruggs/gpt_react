@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { useLocation, Link } from 'react-router-dom';
 import AppContext from '../Utilities/AppContext'
 
@@ -12,7 +12,7 @@ function NavBar() {
     return (
         <nav class="navbar navbar-expand-lg navbar-dark brand fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">Game Progress Tracker</a>
+                <Link class="navbar-brand" to="/main">Game Progress Tracker</Link>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

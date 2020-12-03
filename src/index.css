@@ -24,7 +24,7 @@ a {
   /* Header and Footer bar Color */
 }
 
-.card {
+.card .card-body{
   background-color: #000000;
   color: #ffffff;
 }
