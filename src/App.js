@@ -15,14 +15,15 @@ function App() {
     { readableName: "Main", url: "/main" },
     { readableName: "Signup", url: "/signup" },
     { readableName: "Login", url: "/login" },
-    { readableName: "Profile", url: '/profile'},
-    { readableName: "Logout", url: '/logout'},
+    { readableName: "Profile", url: '/profile' },
+    { readableName: "Logout", url: '/logout' },
   ]
 
   const [user, setUser] = useState({});
   const [gamesList, setGamesList] = useState([]);
   const [gameId, setGameId] = useState('');
   const [gameName, setGameName] = useState('');
+  const [characterName, setCharacterName] = useState('');
 
   function saveUser(res) {
     if (res.status == 200) {
@@ -56,14 +57,17 @@ function App() {
   // useEffect(()=> window.localStorage.setItem("currentPage", JSON.stringify(currentPage)))
 
   const [token, setToken] = useState('');
-  const initialContext = { token, setToken, user, setUser, saveUser, getUser, pages, logoutUser, gamesList, setGamesList, gameId, setGameId, gameName, setGameName };
+  const initialContext = {
+    token, setToken, user, setUser, saveUser, getUser, pages, logoutUser,
+    gamesList, setGamesList, gameId, setGameId, gameName, setGameName, characterName, setCharacterName
+  };
 
   return (
     <div className="brand-main">
       <Router>
         <AppProvider value={initialContext}>
 
-          <NavBar/>
+          <NavBar />
 
           <div class="row my-5 justify-content-center">
             <div class="col-7">
