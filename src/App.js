@@ -19,7 +19,7 @@ function App() {
     { readableName: "Logout", url: '/logout' },
   ]
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState([]);
   const [gamesList, setGamesList] = useState([]);
   const [gameId, setGameId] = useState('');
   const [gameName, setGameName] = useState('');
@@ -27,7 +27,7 @@ function App() {
 
   function saveUser(res) {
     if (res.status == 200) {
-      console.log(res);
+      // console.log(res);
       setUser(res.data);
     }
   }

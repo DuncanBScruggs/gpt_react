@@ -24,12 +24,14 @@ function NavBar() {
                                     return item;
                                 }
                                 if (token.length > 0) {
-                                    if (item.url === '/profile') {
-                                        return item;
-                                    }
-                                    if (item.url === '/logout') {
-                                        return item;
-                                    }
+                                    {/* if (user.account_verified_at.length > 0) { */}
+                                        if (item.url === '/profile') {
+                                            return item;
+                                        }
+                                        if (item.url === '/logout') {
+                                            return item;
+                                        }
+                                    {/* } */}
                                 }
                                 else {
                                     if (item.url !== '/logout' && item.url !== '/profile') {

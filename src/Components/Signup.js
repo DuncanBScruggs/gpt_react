@@ -16,11 +16,6 @@ function Signup() {
             setToken(res.data.data.token);
             sessionStorage.setItem('token', res.data.data.token);
         }
-        else {
-         
-
-            
-        }
     }
 
 
