@@ -8,7 +8,7 @@ export default function AxiosHelper({
     body = {},
     fun = (x) => console.log(x),
 }) {
-    const api_route = `http://localhost:8000/${route}`
+    const api_route = `https://cors-anywhere.herokuapp.com/https://game-progress-tracker.herokuapp.com/${route}`
     const headers = {
         'Content-Type': 'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin': '*',
