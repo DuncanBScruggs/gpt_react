@@ -27,7 +27,6 @@ function App() {
 
   function saveUser(res) {
     if (res.status == 200) {
-      // console.log(res);
       setUser(res.data);
     }
   }
@@ -45,16 +44,12 @@ function App() {
     setToken('');
   }
 
-
-  // did mount
   useEffect(() => {
     let ssToken = window.sessionStorage.getItem("token")
     if (ssToken) {
       setToken(ssToken)
     }
   }, [])
-
-  // useEffect(()=> window.localStorage.setItem("currentPage", JSON.stringify(currentPage)))
 
   const [token, setToken] = useState('');
   const initialContext = {
