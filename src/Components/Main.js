@@ -6,7 +6,7 @@ import AppContext from '../Utilities/AppContext'
 function Main() {
 
     const history = useHistory();
-    const { gamesList, setGamesList, gameId, setGameId, gameName, setGameName } = useContext(AppContext);
+    const { token, gamesList, setGamesList, setGameId, setGameName, getUser } = useContext(AppContext);
 
     const method = 'get';
     const route = 'getGames';
@@ -17,7 +17,8 @@ function Main() {
 
     useEffect(() => {
         AxiosHelper({ method, route, fun: listGames })
-    }, [])
+        if(token.length > 0){getUser()}
+    }, [token])
 
 
     function selectGame(gameObject) {
